@@ -4,8 +4,19 @@ const User = require("../models/user")
 const bcrypt = require("bcrypt")
 
 usersRoute.get("/", async (req, res) => {
-    const users = await User.find({ }).populate("Project")
+    const users = await User.find({ }).populate("project")
     res.json(users)
+})
+
+usersRoute.get("/:id", async (req, res) => {
+    const id = req.params.id
+    const user = await User.findById(id).populate("project")
+
+    user
+        ? res.json(user)
+        : res.status(404).json({
+            error: "user is not found"
+        })
 })
 
 usersRoute.post("/", async (req, res) => {
