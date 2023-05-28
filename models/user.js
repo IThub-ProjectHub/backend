@@ -21,7 +21,8 @@ const UserSchema = new mongoose.Schema({
     project: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Project"
-    }
+    },
+    creator: Boolean
 })
 
 UserSchema.plugin(uniqueValidator)

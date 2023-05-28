@@ -35,7 +35,8 @@ usersRoute.post("/", async (req, res) => {
         email,
         name,
         surname,
-        passwordHash
+        passwordHash,
+        creator: false
     })
     const savedUser = await user.save()
     res.status(201).json(savedUser)
