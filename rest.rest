@@ -1,0 +1,85 @@
+GET http://localhost:3001/api/users HTTP/1.1
+
+###
+
+POST http://localhost:3001/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "test2",
+    "password": "test2",
+    "name": "Anton",
+    "surname": "Ivanov"
+}
+
+###
+
+POST http://localhost:3001/api/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "test2",
+    "password": "test2"
+}
+
+# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQW50b24iLCJzdXJuYW1lIjoiSXZhbm92IiwiaWQiOiI2NDczMjU4NTJiYzJjOTdhNzBjMzNmMmYiLCJpYXQiOjE2ODUyNjc4NDh9.8I6nMMa9Pc2YThOnDdWxZvIxeqO2QdGaAdgxg_ipWdc
+
+###
+
+GET http://localhost:3001/api/projects HTTP/1.1
+
+###
+
+POST http://localhost:3001/api/projects HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQW50b24iLCJzdXJuYW1lIjoiSXZhbm92IiwiaWQiOiI2NDczMjU4NTJiYzJjOTdhNzBjMzNmMmYiLCJpYXQiOjE2ODUyNjc4NDh9.8I6nMMa9Pc2YThOnDdWxZvIxeqO2QdGaAdgxg_ipWdc
+
+{
+    "name": "ProjectHub",
+    "smdescription": "qwertyuiopasdgfgh",
+    "description": "qwertyuiopasdgfgh",
+    "client": "b2b",
+    "industry": "ithub club"
+}
+
+###
+
+DELETE http://localhost:3001/api/projects/647325a92bc2c97a70c33f3f HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQW50b24iLCJzdXJuYW1lIjoiSXZhbm92IiwiaWQiOiI2NDczMjU4NTJiYzJjOTdhNzBjMzNmMmYiLCJpYXQiOjE2ODUyNjc4NDh9.8I6nMMa9Pc2YThOnDdWxZvIxeqO2QdGaAdgxg_ipWdc
+
+# -------------------------------
+###
+
+POST http://localhost:3001/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "test1",
+    "password": "test1",
+    "name": "Vlad",
+    "surname": "Shakitskiy"
+}
+
+###
+
+POST http://localhost:3001/api/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "test1",
+    "password": "test1"
+}
+
+# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVmxhZCIsInN1cm5hbWUiOiJTaGFraXRza2l5IiwiaWQiOiI2NDczMjViYzJiYzJjOTdhNzBjMzNmNDIiLCJpYXQiOjE2ODUyNjc5MDV9.A2VG1Rm0OOEFcWAgJKd4pi37clZrNJJrUpJLpH4cZT8
+
+###
+
+PUT http://localhost:3001/api/projects/647325a92bc2c97a70c33f3f HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVmxhZCIsInN1cm5hbWUiOiJTaGFraXRza2l5IiwiaWQiOiI2NDczMjViYzJiYzJjOTdhNzBjMzNmNDIiLCJpYXQiOjE2ODUyNjc5MDV9.A2VG1Rm0OOEFcWAgJKd4pi37clZrNJJrUpJLpH4cZT8
+
+###
+
+DELETE http://localhost:3001/api/projects/647325a92bc2c97a70c33f3f HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVmxhZCIsInN1cm5hbWUiOiJTaGFraXRza2l5IiwiaWQiOiI2NDczMjViYzJiYzJjOTdhNzBjMzNmNDIiLCJpYXQiOjE2ODUyNjc5MDV9.A2VG1Rm0OOEFcWAgJKd4pi37clZrNJJrUpJLpH4cZT8

@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 const { DBurl } = require("./utils/config")
 
 const connectDB = async () => {
+    mongoose.set("strictPopulate", false)
     mongoose.set("strictQuery", false)
     try {
         await mongoose.connect(DBurl)

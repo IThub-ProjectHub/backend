@@ -1,11 +1,21 @@
+require("express-async-errors")
+
 const express = require("express")
 const cors = require("cors")
 
-const { requestLogger, unknownEndpoint } = require("./utils/middleware")
+const { 
+    requestLogger, 
+    unknownEndpoint, 
+    errorHandler,
+    tokenExtractor
+} = require("./utils/middleware")
 const connectDB = require("./mongo")
 
-const usersRoute = require("./controllers/users")
-const projectsRoute = require("./controllers/projects")
+const {
+    usersRoute,
+    projectsRoute,
+    loginRoute
+} = require("./controllers/")
 
 const app = express()
 
@@ -21,9 +31,11 @@ app.use(requestLogger)
 
 // routes
 app.use("/api/users", usersRoute)
-app.use("/api/projects", projectsRoute)
+app.use("/api/projects", tokenExtractor, projectsRoute)
+app.use("/api/login", loginRoute)
 
 // errors/unknown endpoints
 app.use(unknownEndpoint)
+app.use(errorHandler)
 
 module.exports = app
