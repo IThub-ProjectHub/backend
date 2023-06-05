@@ -14,6 +14,14 @@ projectsRoute.get("/", async (req, res) => {
     res.json(projects)
 })
 
+projectsRoute.get("/:id", async (req, res) => {
+    const project = await Project.findById(req.params.id).populate("users", {
+        project: 0,
+        email: 0
+    })
+    res.json(project)
+})
+
 projectsRoute.post("/", userExtractor, async (req, res) => {
     const user = req.user
 

@@ -16,7 +16,7 @@ loginRouter.post("/", async (req, res) => {
     console.log(user, passwordCorrect)
     if (!(user && passwordCorrect))
         return res.status(401).json({
-            error: "invalid email or password"
+            error: "Неверный логин или пароль"
         })
 
     const userForToken = {
@@ -29,7 +29,8 @@ loginRouter.post("/", async (req, res) => {
     res.status(200).send({
         token,
         name: user.name,
-        surname: user.surname
+        surname: user.surname,
+        id: user._id
     })
 })
 
